@@ -1,0 +1,32 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h2>Your Cart</h2>
+<table>
+  <tbody>
+    <% @card.line_items.each do |item| %>
+      <tr>
+        <td class="quantity"><%= item.quantity %></td>
+        <td><%= item.product.title %></td>
+        <td class="price"><%= number_to_currency(item.total_price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="2">Total Price</th>
+      <td class="price"><%= number_to_currency(@card.total_price) %></td>
+    </tr>
+  </tfoot>
+</table>
+<!--<ul>-->
+  <%# @card.line_items.each do |item| %>
+<!--    <li><%#= item.quantity %> &times; <%#= item.product.title %></li>-->
+  <%# end %>
+<!--</ul>-->
+
+<%= button_to 'Empty Cart', @card, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<!--<%#= link_to 'Edit', edit_card_path(@card) %> |-->
+<%#= link_to 'Back', cards_path %>
