@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   # GET /Carts/1 or /Carts/1.json
   def show
+    @count = @card.total_items
     p '>>>>>>>>>>>>>>>>>>>>>>>.'
     p 'SHowing card'
     p '>>>>>>>>>>>>>>>>>>>>>>>.'
@@ -53,10 +54,15 @@ class CardsController < ApplicationController
 
   # DELETE /Carts/1 or /Carts/1.json
   def destroy
+    if @card.id == session[:cart_id]
+      p ">>>>>>>>>>>>>>>>>>>>>>>if"
+    else
+      p "<<<<<<<<<<<<<<<<<<<<<<<<<<else"
+    end
     @card.destroy if @card.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: "Card was successfully destroyed." }
+      format.html { redirect_to store_index_url, notice: "Card was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -15,10 +15,30 @@
     <header class="main">
       <%= image_tag 'logo.png', alt: "The Pragmatic Bookshelf" %>
       <h1><%= @page_title %></h1>
+      <%= link_to 'Show Cart', @card, class: 'btn-cart' %>
     </header>
+
+    <div class="card-basket">
+      <a href="/cards/<%= @card.id %>">
+        <div class="card-badge">
+          <div class="cart-badge-text" id="cart-badge-text">
+            <%= @count %>
+          </div>
+          <%= image_tag('/assets/cart-icon.png', class: 'cart-image') %>
+        </div>
+        <p class="price">$1232</p>
+      </a>
+    </div>
 
     <section class="content">
       <nav class="side_nav">
+
+        <%# if @card %>
+<!--          <div id="cart" class="carts">-->
+            <%#= render @card %>
+<!--          </div>-->
+        <%# end %>
+
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="">Questions</a></li>

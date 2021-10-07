@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding:0;
+  position: relative;
 }
 
 header.main {
@@ -20,6 +21,16 @@ header.main {
   img {
     width:200px;
   }
+}
+
+.btn-cart {
+  float: right;
+  padding: 5px 10px;
+  background: #58b658;
+  text-decoration: none;
+  margin: 19px;
+  color: #fff !important;
+  font-weight: bold;
 }
 
 .content {
@@ -80,4 +91,71 @@ header.main {
   margin-bottom: 1em;
   padding: 1em 1em;
   text-align: center;
+}
+
+#cart {
+  article {
+    h2 {
+      margin-top: 0;
+    }
+    background: white;
+    border-radius: 0.5em;
+    margin: 1em !important;
+    padding: 1.414em;
+    @media (min-width: 30em) {
+      margin: 0; // desktop doesn't need this margin
+    }
+    display: block;
+  }
+}
+
+.card-basket {
+  min-width: 50px;
+  /* height: 100px; */
+  background-color: #FFF;
+  box-shadow: 0px 0px 21px 0px #ddd;
+  padding: 16px 10px 10px 6px !important;
+  right: 0px;
+  top: 50%;
+  position: fixed;
+
+  .price {
+    padding: 0px;
+    margin: 10px 10px 0px 10px;
+    font-weight: bold;
+  }
+
+  .cart-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0px auto auto;
+  }
+
+  .cart-badge-text {
+    width: 25px;
+    height: 24px;
+    position: absolute;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 100%;
+    background: red;
+    top: 13px;
+    right: 12px;
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    color: #007bff;
+
+  }
+
 }

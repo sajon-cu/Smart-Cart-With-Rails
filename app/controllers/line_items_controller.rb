@@ -33,12 +33,14 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html {
-          # redirect_to @line_item.card, notice: 'Line item was successfully created.'
-          redirect_to @line_item.card
-        }
-        format.html { render :new}
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html { redirect_to store_index_url }
+        format.js
+        format.json { render :show,
+                             status: :created, location: @line_item }
+      else
+        format.html { render :new }
+        format.json { render json: @line_item.errors,
+                             status: :unprocessable_entity }
       end
     end
   end

@@ -19,4 +19,12 @@ class Card < ApplicationRecord
       item.total_price
     end
   end
+
+  def total_items
+    count = 0
+    line_items.each do |item|
+      count += item.quantity
+    end
+    count
+  end
 end
