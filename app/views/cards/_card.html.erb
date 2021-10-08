@@ -12,7 +12,10 @@
     </tr>
     </tfoot>
   </table>
+
   <%= button_to 'Empty cart', card,
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
+
+  <%= button_to 'Checkout', class: 'btn-checkout' %>
 </article>
